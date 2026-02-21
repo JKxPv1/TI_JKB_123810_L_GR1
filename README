@@ -1,0 +1,83 @@
+# TI_JKB_123810_L_GR1
+Projekt z przedmiotu Technologie Internetowe.
+
+O projekcie:
+    Projekt to prosta aplikacja Blazor WebAssembly (Standalone App), która wyświetla katalog fikcyjnych filmów o kotkach.
+Na stronie katalogu można filtrować filmy po kategorii. Po kliknięciu kafelka filmu przechodzimy do strony z szczegółami,gdzie pokazują się wszystkie dane filmu z pliku MoviesData.json. 
+    Zdjęcia znajdujące się w wwwroot/images/posters/ zostały wybrane ze względu na swój urok.
+
+Funkcjonalności:
+    * Wyświetlanie katalogu filmów w formie responsywnej siatki
+    * Strona szczegółów filmu z tytułem, opisem, kategoriami, oceną, datą premiery, listą aktorów i przyciskiem do obejrzenia filmu
+    * Obsługa błędów - komunikat "Nie znaleziono filmu" dla nieprawidłowego ID filmu
+    * Responsywność strony dla urządzeń mobilnych
+    
+Technologie:
+    * Blazor WebAssembly (.NET)
+    * C#
+    * HTML / CSS
+    
+Struktura projektu:
+    BlazorApp3/
+    ├── wwwroot/
+    │   ├── css/
+    │   │   ├── app.css          # style systemowe Blazora
+    │   │   └── site.css         # główne style aplikacji
+    │   ├── data/
+    │   │   └── MoviesData.json  # baza danych filmów
+    │   ├── images/
+    │   │   └── posters/         # plakaty filmów
+    │   └── index.html           # główny dokument HTML
+    │
+    ├── Layout/
+    │   └── MainLayout.razor     # układ strony (header, footer, main)
+    │
+    ├── Models/
+    │   └── Movie.cs             # model danych filmu
+    │
+    ├── Pages/
+    │   ├── Katalog.razor        # katalog filmów
+    │   └── MovieDetails.razor   # szczegóły filmu
+    │
+    ├── Services/
+    │   └── MoviesService.cs     # logika pobierania danych
+    │
+    ├── App.razor                # konfiguracja routingu
+    └── Program.cs               # konfiguracja aplikacji
+   
+
+Autor:
+    Jan Bączkowski, Nr. albumu: 123810
+
+Źródła:
+    1. Plik BlazorApp1/wwwroot/images/posters/1.jpg – https://krytykapolityczna.pl/nauka/koty-moga-jesc-wegansko/ (15.02.2026)
+    2. Plik BlazorApp1/wwwroot/images/posters/2.jpg – https://www.infowet.pl/koty/172/kot_ignoruje_twoje_komendy_badania_wykazuja_ze_koty_znaja_swoje_imiona_i_kojarza_slowa,1425.html (15.02.2026)
+    3. Plik BlazorApp1/wwwroot/images/posters/3.jpg – https://zooart.com.pl/blog/koty-miniaturki-czy-znasz-najmniejsze-koty-swiata-poznaj-nasze-top-7-malych-ras (15.02.2026)
+    4. Plik BlazorApp1/wwwroot/images/posters/4.jpg – https://premium4animals.pl/blog/koty-bengalskie (15.02.2026)
+    5. Plik BlazorApp1/wwwroot/images/posters/5.jpg – https://www.gniezno.eu/wiadomosci/1/wiadomosc/205089/dbamy_o_koty_w_miescie (15.02.2026)
+    6. Plik BlazorApp1/wwwroot/images/posters/6.jpg – https://www.national-geographic.pl/przyroda/jak-udomowiono-koty-dzialo-sie-to-w-2-etapach/ (15.02.2026)
+    7. Plik BlazorApp1/wwwroot/images/posters/7.jpg – https://strefaalergii.pl/abc-alergii/dr-kinga-lis-alergia-na-koty-egzotyczne/ (15.02.2026)
+    8. Plik BlazorApp1/wwwroot/images/posters/8.jpg – https://www.infowet.pl/koty/172/17_lutego_to_dzien_kota_w_jaki_sposob_koty_komunikuja_swoje_potrzeby,2209.html (15.02.2026)
+    9. Plik BlazorApp1/wwwroot/images/posters/9.jpg – https://inspiracje.polki.pl/dom/zwierzeta/najwiekszy-kot-domowy-10-ras/ (15.02.2026)
+    10. Plik BlazorApp1/wwwroot/images/posters/10.jpg – https://bezpiecznie-w-domu.pl/kot-domowy/ (15.02.2026)
+    11. Plik BlazorApp1/wwwroot/images/posters/11.jpg – https://klubpolek.pl/koty-czesc-3/ (15.02.2026)
+    12. Plik BlazorApp1/wwwroot/images/posters/12.jpg – https://koema.pl/blog/dlaczego-koty-lubia-kartony/ (15.02.2026)
+    13. Plik BlazorApp1/wwwroot/images/posters/13.jpg - https://qualitytest.pl/koty-abisynskie/ (15.02.2026)
+    14. Plik BlazorApp1/wwwroot/images/posters/14.jpg - https://www.koty.pl/rozrywka/smieszne-koty-zdjecia-i-filmiki (20.02.2026)
+    15. Plik BlazorApp1/wwwroot/images/posters/15.jpg - https://www.krakvet.pl/artykuly/smieszne-koty-wizerunek-kota-w-popkulturze/?srsltid=AfmBOoq_2wwfAzJPQrlvhrle-g7NL9WuT_CaOcX8yCiSbq6_PudihzG7 (20.02.2026)
+    16. Plik BlazorApp1/wwwroot/images/posters/16.jpg - https://www.facebook.com/SmieszneKotyPl/ (20.02.2026)
+    17. Plik BlazorApp1/wwwroot/images/posters/17.jpg - https://depositphotos.com/pl/photos/%C5%9Bmieszne-koty.html (20.02.2026)
+    18. Plik BlazorApp1/wwwroot/images/posters/18.jpg - https://www.rmf.fm/magazyn/tag,%C5%9Bmieszne+koty.html (20.02.2026)
+    19. Plik BlazorApp1/wwwroot/images/posters/19.jpg - https://kobieta.dlastudenta.pl/fotoalbum/1419549,129348,1.html (20.02.2026)
+    20. Plik BlazorApp1/wwwroot/images/posters/20.jpg - https://kobieta.dlastudenta.pl/fotoalbum/1419550,129348,1.html (20.02.2026)
+    21. Plik BlazorApp1/wwwroot/images/posters/21.jpg - https://kwejk.pl/przegladaj/3843479/0/slodkie-kotki-w-halloweenowych-przebraniach.html (20.02.2026)
+    22. Plik BlazorApp1/wwwroot/images/posters/22.jpg - https://kobieta.dlastudenta.pl/fotoalbum/1419547,129348,1.html (20.02.2026)
+    23. Plik BlazorApp1/wwwroot/images/posters/23.jpg - https://pl.pinterest.com/afrckiewicz3225/koty-%C5%9Bmieszne/ (20.02.2026)
+    24. Plik BlazorApp1/wwwroot/images/posters/24.jpg - https://puzzlefactory.com/pl/tagi/kot%20pr%C4%99gowany/7 (20.02.2026)
+    25. Plik BlazorApp1/wwwroot/images/posters/25.jpg - https://puzzlefactory.com/pl/puzzle-zwierz%C4%99ta/266816-%C5%9Bmieszne-koty-puzzle (20.02.2026)
+    26. Plik BlazorApp1/wwwroot/images/posters/26.jpg - https://www.koty.pl/rozrywka/smieszne-koty-zdjecia-i-filmiki (20.02.2026)
+    27. Plik BlazorApp1/wwwroot/images/posters/27.jpg - https://www.krakvet.pl/artykuly/smieszne-koty-wizerunek-kota-w-popkulturze/?srsltid=AfmBOorR8tmz7kVUumMV8ZCSuwrqlR2a8MeVfcakJfjSyJm9aSxM11oB (20.02.2026)
+    28. Plik BlazorApp1/wwwroot/images/posters/28.jpg - https://www.koty.pl/aktualnosci/masz-zly-dzien-obejrzyj-filmik-z-kotem (20.02.2026)
+    29. Plik BlazorApp1/wwwroot/images/posters/29.jpg - https://www.facebook.com/smiesznekitku/ (20.02.2026)
+    30. Plik BlazorApp1/wwwroot/images/posters/30.jpg - https://pl.pinterest.com/miralechelt/%C5%9Bmieszne-koty/ (20.02.2026)
+    31. Plik BlazorApp1/wwwroot/data/MoviesData.json został wygenerowany przez Chat GPT

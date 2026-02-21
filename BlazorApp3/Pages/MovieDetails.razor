@@ -1,0 +1,70 @@
+@page "/moviedetails/{Id:int}"
+
+@using BlazorApp3.Models
+@inject BlazorApp3.Services.MoviesService MoviesService
+
+@if (movie == null)
+{
+    <div class="error-panel">
+        <h2>Nie znaleziono filmu</h2>
+        <p>Możliwe, że podany adres jest błędny.</p>
+        <a class="link-back" href="/katalog">Wróć do katalogu</a>
+    </div>
+}
+else
+{
+    <div class="details">
+        <div class="details-left">
+            <img class="details-poster" src="@movie.PosterUrl" alt="@movie.Title" />
+
+            <div class="details-meta">
+                <div class="meta-row">
+                    <span class="meta-label">Ocena</span>
+                    <span class="meta-value">@movie.Rating</span>
+                </div>
+                <div class="meta-row">
+                    <span class="meta-label">Data</span>
+                    <span class="meta-value">@movie.ReleaseDate</span>
+                </div>
+                <div class="meta-row">
+                    <span class="meta-label">Kategorie</span>
+                    <span class="meta-value">@string.Join(", ", movie.Categories)</span>
+                </div>
+            </div>
+
+            <a class="link-yt" href="@movie.VideoUrl" target="_blank">Obejrzyj na YouTube</a>
+
+            <a class="link-back" href="/katalog">Wróć do katalogu</a>
+        </div>
+
+        <div class="details-right">
+            <h2 class="details-title">@movie.Title</h2>
+
+            <div class="panel">
+                <h3>Opis</h3>
+                <p class="details-description">@movie.Description</p>
+            </div>
+
+            <div class="panel">
+                <h3>Aktorzy (imiona kotów)</h3>
+                <ul class="actors">
+                    @foreach (var a in movie.Actors)
+                    {
+                        <li>@a</li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter] public int Id { get; set; }
+    private Movie? movie;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        var all = await MoviesService.GetAll();
+        movie = all.FirstOrDefault(m => m.Id == Id);
+    }
+}

@@ -1,0 +1,60 @@
+﻿@page "/"
+@page "/katalog"
+
+@using BlazorApp3.Models
+@inject BlazorApp3.Services.MoviesService MoviesService
+
+<h2>Katalog</h2>
+
+<label>Kategoria:</label>
+<select @bind="selectedCategory">
+    <option value="">Wszystkie</option>
+    @foreach (var c in categories)
+    {
+        <option value="@c">@c</option>
+    }
+</select>
+
+@if (movies == null)
+{
+    <p>Ładowanie...</p>
+}
+else
+{
+    <div class="grid">
+        @foreach (var m in GetFilteredMovies())
+        {
+            <a class="card" href="@($"/moviedetails/{m.Id}")">
+                <img src="@m.PosterUrl" alt="@m.Title" />
+                <div class="title">@m.Title</div>
+                <div class="categories">@string.Join(", ", m.Categories)</div>
+            </a>
+        }
+    </div>
+}
+
+@code {
+    private List<Movie>? movies;
+
+    private List<string> categories = new()
+    {
+        "Dramat", "Komedia", "Kryminał",
+        "Fantastyka", "Horror", "Przygodowy",
+        "Musical"
+    };
+
+    private string selectedCategory = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        movies = await MoviesService.GetAll();
+    }
+    
+    private List<Movie> GetFilteredMovies()
+    {
+        if (movies == null) return new List<Movie>();
+        if (string.IsNullOrWhiteSpace(selectedCategory)) return movies!;
+
+        return movies.Where(m => m.Categories.Contains(selectedCategory)).ToList();
+    }
+}
